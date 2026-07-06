@@ -1,5 +1,0 @@
-if (([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "[OK] PowerShell is running as Administrator" -ForegroundColor Green
-} else {
-    Write-Host "[ERROR] PowerShell is NOT running as Administrator" -ForegroundColor Red
-}

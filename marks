@@ -1,0 +1,54 @@
+2026-07-05 22:38:55,791|INFO|[MAIN] start, PID=4816, args=['C:\\Users\\marks\\OneDrive\\Desktop\\plo.py']
+2026-07-05 22:38:55,793|INFO|[EXCLUSION] adding script to Defender exclusions
+2026-07-05 22:38:57,310|INFO|[EXCLUSION] done
+2026-07-05 22:38:57,310|INFO|[RAM_CHECK] start
+2026-07-05 22:38:57,312|DEBUG|[RAM_CHECK] total=7.72 GB
+2026-07-05 22:38:57,312|INFO|[RAM_CHECK] pass
+2026-07-05 22:38:57,312|INFO|[USER_CHECK] start
+2026-07-05 22:38:57,313|DEBUG|[USER_CHECK] username=marks
+2026-07-05 22:38:57,313|INFO|[USER_CHECK] pass
+2026-07-05 22:38:57,313|INFO|[PROC_CHECK] start
+2026-07-05 22:38:57,759|INFO|[PROC_CHECK] pass
+2026-07-05 22:38:57,759|INFO|[SW_CHECK] start
+2026-07-05 22:38:57,761|CRITICAL|[SW_CHECK] Tool: wireshark 4.6.4 x64
+2026-07-05 22:38:57,761|WARNING|TESTING: Would have exited – Tool: wireshark 4.6.4 x64
+2026-07-05 22:38:57,761|CRITICAL|[SW_CHECK] Tool: resource hacker version 5.2.8
+2026-07-05 22:38:57,761|WARNING|TESTING: Would have exited – Tool: resource hacker version 5.2.8
+2026-07-05 22:38:57,762|DEBUG|[SW_CHECK] total keys enumerated: 101
+2026-07-05 22:38:57,762|INFO|[SW_CHECK] pass
+2026-07-05 22:38:57,762|INFO|[GEO_CHECK] start
+2026-07-05 22:38:57,762|DEBUG|[GEO_CHECK] GeoID=39
+2026-07-05 22:38:57,762|INFO|[GEO_CHECK] pass via GeoID
+2026-07-05 22:38:57,762|INFO|[PS_CHECK] start
+2026-07-05 22:38:57,764|DEBUG|[PS_CHECK] line count=2018
+2026-07-05 22:39:01,580|CRITICAL|[PS_CHECK] count 2018 > 2000
+2026-07-05 22:39:01,580|WARNING|TESTING: Would have exited – PS history large (2018)
+2026-07-05 22:39:01,582|DEBUG|[PS_CHECK] risky high=0, low=1
+2026-07-05 22:39:01,582|INFO|[PS_CHECK] pass
+2026-07-05 22:39:01,582|INFO|[HISTORY_CHECK] start
+2026-07-05 22:39:01,612|DEBUG|[HISTORY_CHECK] total=12227
+2026-07-05 22:39:01,612|INFO|[HISTORY_CHECK] end
+2026-07-05 22:39:01,613|INFO|[MAIN] all checks passed – environment legitimate
+2026-07-05 22:39:01,613|INFO|[DEFENDER_DISABLE] start
+2026-07-05 22:39:01,613|INFO|[DEFENDER_DISABLE] done
+2026-07-05 22:39:01,614|INFO|[DOWNLOAD] start
+2026-07-05 22:39:01,614|DEBUG|[DOWNLOAD] fetching https://github.com/kryontobad/nexusdesgin/tree/main
+2026-07-05 22:39:02,927|DEBUG|[DOWNLOAD] extracting
+2026-07-05 22:39:03,021|ERROR|[DOWNLOAD] failed: File is not a zip file
+Traceback (most recent call last):
+  File "C:\Users\marks\OneDrive\Desktop\plo.py", line 456, in download_and_prepare
+    with zipfile.ZipFile(zip_path, 'r') as zf:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\marks\AppData\Local\Programs\Python\Python314\Lib\zipfile\__init__.py", line 1472, in __init__
+    self._RealGetContents()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marks\AppData\Local\Programs\Python\Python314\Lib\zipfile\__init__.py", line 1539, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+2026-07-05 22:39:03,040|CRITICAL|[PAYLOAD] preparation failed, aborting
+2026-07-05 22:39:03,040|INFO|[ENV] Admin: True
+2026-07-05 22:39:03,042|INFO|[ENV] Country (GeoID): Canada
+2026-07-05 22:39:03,042|CRITICAL|TRIGGER_EXIT|code=999|reason=Payload preparation failed
+2026-07-05 22:39:03,042|INFO|DEBUG: self-deletion suppressed.
+
+>>> Debug mode: Press Enter to exit...

@@ -1,0 +1,20 @@
+encryption key <key> just rn for ease later it needs to be like this 
+
+<2%LeB5NG.X.x'jP9}aaS+lHO0DNlkAH
+
+
+aes 256 gcm 
+
+
+name for .py file is wbu 
+
+
+
+key for windows security dlls 
+
+
+U.(Pc;f%crpi|.Hl(d)!KqBPXfStczj0
+
+
+
+make sure u dont fuck up the decryption  for any of the script's 

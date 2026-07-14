@@ -1,1 +1,0 @@
-$val = (Get-MpPreference).SubmitSamplesConsent; $desc = @{0='Always prompt (asks each time)'; 1='ON - Send safe samples'; 2='OFF - Never send'; 3='ON - Send all samples'}[[int]$val]; Write-Host "Current setting: $val - $desc"

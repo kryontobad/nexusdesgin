@@ -1,0 +1,132 @@
+2026-07-14 13:06:13,151|INFO|[LOG] Writing log to C:\Users\hotlo\AppData\Local\Temp\stager_debug.log
+
+============================================================
+==================== MONOLITHIC STARTED ====================
+============================================================
+
+2026-07-14 13:06:13,152|INFO|[MAIN] start, PID=2748
+2026-07-14 13:06:13,152|INFO|[MAIN] woke up, args=['C:\\Users\\hotlo\\OneDrive\\Desktop\\losing.py']
+2026-07-14 13:06:13,152|INFO|[EXCLUSION] adding script to Defender exclusions
+2026-07-14 13:06:13,152|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:06:14,140|INFO|[EXCLUSION] done
+2026-07-14 13:06:14,141|INFO|[FIND_MINER] searching for miner executable
+2026-07-14 13:06:14,653|ERROR|[FIND_MINER] miner exe not found
+2026-07-14 13:06:14,654|INFO|[MAIN] No deployment found, running stager logic
+2026-07-14 13:06:14,654|INFO|[MAIN] waiting 60 seconds before environment checks...
+2026-07-14 13:07:05,655|INFO|[RAM_CHECK] start
+2026-07-14 13:07:05,659|INFO|[RAM_CHECK] pass
+2026-07-14 13:07:05,660|INFO|[USER_CHECK] start
+2026-07-14 13:07:05,662|INFO|[USER_CHECK] pass
+2026-07-14 13:07:05,662|INFO|[PROC_CHECK] start
+2026-07-14 13:07:06,184|INFO|[PROC_CHECK] pass
+2026-07-14 13:07:06,185|INFO|[SW_CHECK] start
+2026-07-14 13:07:06,188|CRITICAL|[SW_CHECK] Tool: resource hacker version 5.2.8
+2026-07-14 13:07:06,188|WARNING|TESTING: Would have exited - Tool: resource hacker version 5.2.8
+2026-07-14 13:07:06,189|INFO|[SW_CHECK] pass
+2026-07-14 13:07:06,189|INFO|[GEO_CHECK] start
+2026-07-14 13:07:06,189|INFO|[GEO_CHECK] pass via GeoID (Windows)
+2026-07-14 13:07:06,189|INFO|[TZ_CHECK] start
+2026-07-14 13:07:06,189|INFO|[TZ_CHECK] pass
+2026-07-14 13:07:06,189|INFO|[PS_CHECK] start
+2026-07-14 13:07:10,037|INFO|[PS_CHECK] pass
+2026-07-14 13:07:10,037|INFO|[HISTORY_CHECK] start
+2026-07-14 13:07:10,088|INFO|[HISTORY_CHECK] end
+2026-07-14 13:07:10,089|INFO|[DISK_CHECK] start
+2026-07-14 13:07:10,090|INFO|[DISK_CHECK] pass
+2026-07-14 13:07:10,090|INFO|[SCREEN_CHECK] start
+2026-07-14 13:07:10,090|INFO|[SCREEN_CHECK] pass
+2026-07-14 13:07:10,090|INFO|[CPU_CHECK] start
+2026-07-14 13:07:10,091|INFO|[CPU_CHECK] pass
+2026-07-14 13:07:10,091|INFO|[SANDBOX_DLL_CHECK] start
+2026-07-14 13:07:10,091|INFO|[SANDBOX_DLL_CHECK] pass
+2026-07-14 13:07:10,091|INFO|[MAC_CHECK] start
+2026-07-14 13:07:11,165|INFO|[MAC_CHECK] pass
+2026-07-14 13:07:11,165|INFO|[MOUSE_CHECK] start
+2026-07-14 13:07:21,167|CRITICAL|[MOUSE_CHECK] no mouse movement
+2026-07-14 13:07:21,168|WARNING|TESTING: Would have exited - no mouse movement
+2026-07-14 13:07:21,170|INFO|[MOUSE_CHECK] pass
+2026-07-14 13:07:21,171|INFO|[PROC_COUNT_CHECK] start
+2026-07-14 13:07:21,487|INFO|[PROC_COUNT_CHECK] pass
+2026-07-14 13:07:21,487|INFO|[SANDBOX_FILE_CHECK] start
+2026-07-14 13:07:21,488|INFO|[SANDBOX_FILE_CHECK] pass
+2026-07-14 13:07:21,488|INFO|[UPTIME_CHECK] start
+2026-07-14 13:07:21,489|INFO|[UPTIME_CHECK] pass
+2026-07-14 13:07:21,489|INFO|[DEBUGGER_CHECK] start
+2026-07-14 13:07:21,489|INFO|[DEBUGGER_CHECK] pass
+2026-07-14 13:07:21,489|INFO|[MAIN] all checks passed - environment legitimate
+2026-07-14 13:07:24,387|INFO|[DEFENDER_DISABLE] disabling cloud-delivered protection
+2026-07-14 13:07:25,222|INFO|[DEFENDER_DISABLE] done
+2026-07-14 13:07:25,222|INFO|[WIN_UPDATE] pausing updates for 35 days
+2026-07-14 13:07:25,533|INFO|[WIN_UPDATE] updates paused
+2026-07-14 13:07:25,533|INFO|[DOWNLOAD] start
+2026-07-14 13:07:25,555|INFO|[DOWNLOAD] Custom miner attempt 1/2
+2026-07-14 13:07:27,162|INFO|[DOWNLOAD] Download complete
+2026-07-14 13:07:27,229|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\BgGTJhPwckw1eyR0Y to Defender exclusions
+2026-07-14 13:07:27,230|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:28,823|INFO|[EXCLUSION] folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\BgGTJhPwckw1eyR0Y added
+2026-07-14 13:07:28,844|INFO|[EXCL_FAST] Adding exclusion for: C:\Users\hotlo\AppData\Local\Microsoft\Caches\BgGTJhPwckw1eyR0Y\who my pie.exe
+2026-07-14 13:07:28,844|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:30,119|INFO|[DOWNLOAD] Custom miner placed
+2026-07-14 13:07:30,619|WARNING|[DOWNLOAD] Custom miner deleted after placement (Defender?), attempt 1
+2026-07-14 13:07:31,113|INFO|[DOWNLOAD] Custom miner attempt 2/2
+2026-07-14 13:07:32,597|INFO|[DOWNLOAD] Download complete
+2026-07-14 13:07:32,657|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\IQY3HrpX5imgcRwxa to Defender exclusions
+2026-07-14 13:07:32,658|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:34,310|INFO|[EXCLUSION] folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\IQY3HrpX5imgcRwxa added
+2026-07-14 13:07:34,327|INFO|[EXCL_FAST] Adding exclusion for: C:\Users\hotlo\AppData\Local\Microsoft\Caches\IQY3HrpX5imgcRwxa\who my pie.exe
+2026-07-14 13:07:34,327|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:35,525|INFO|[DOWNLOAD] Custom miner placed
+2026-07-14 13:07:36,040|WARNING|[DOWNLOAD] Custom miner deleted after placement (Defender?), attempt 2
+2026-07-14 13:07:36,518|INFO|[DOWNLOAD] Custom miner failed after retries, falling back to official XMRig
+2026-07-14 13:07:36,519|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv to Defender exclusions
+2026-07-14 13:07:36,519|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:38,180|INFO|[EXCLUSION] folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv added
+2026-07-14 13:07:38,181|INFO|[FALLBACK] Downloading official XMRig as last resort
+2026-07-14 13:07:39,099|INFO|[FALLBACK] Download complete, extracting...
+2026-07-14 13:07:39,146|INFO|[FALLBACK] xmrig.exe renamed to who my pie.exe at C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\who my pie.exe
+2026-07-14 13:07:39,149|INFO|[EXCL_FAST] Adding exclusion for: C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\who my pie.exe
+2026-07-14 13:07:39,149|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:41,173|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles to Defender exclusions
+2026-07-14 13:07:41,174|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:42,797|INFO|[EXCLUSION] folder C:\Users\hotlo\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles added
+2026-07-14 13:07:43,104|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\mobsync.exe to Defender exclusions
+2026-07-14 13:07:43,105|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-14 13:07:44,674|INFO|[EXCLUSION] folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\mobsync.exe added
+[*] Miner deployed as: C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\mobsync.exe
+2026-07-14 13:07:44,677|INFO|[MAIN] miner path: C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\mobsync.exe
+2026-07-14 13:07:44,678|INFO|[CONFIG] generating config.json
+2026-07-14 13:07:44,687|INFO|[CONFIG] written to C:\Users\hotlo\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\config.json
+2026-07-14 13:07:44,688|INFO|[MAIN] adding micro-pause...
+2026-07-14 13:07:45,729|INFO|[MAIN] waiting 3 seconds for Defender exclusions to settle...
+2026-07-14 13:07:48,733|INFO|[MAIN] adding micro-pause...
+2026-07-14 13:07:49,923|INFO|[MAIN] final PowerShell exclusion for C:\Users\hotlo\AppData\Local\Microsoft\Caches\tOolWWb9rpZu7SYKv\mobsync.exe
+2026-07-14 13:07:49,923|INFO|[WATCHDOG] starting delayed launch (total ~420s)
+2026-07-14 13:07:49,924|INFO|[WATCHDOG] pausing 34s (elapsed 0s)
+2026-07-14 13:08:23,925|INFO|[WATCHDOG] pausing 25s (elapsed 34s)
+2026-07-14 13:08:48,927|INFO|[WATCHDOG] pausing 22s (elapsed 59s)
+2026-07-14 13:09:10,929|INFO|[WATCHDOG] pausing 24s (elapsed 81s)
+2026-07-14 13:09:34,932|INFO|[WATCHDOG] pausing 21s (elapsed 105s)
+2026-07-14 13:09:55,934|INFO|[WATCHDOG] pausing 30s (elapsed 126s)
+2026-07-14 13:10:25,936|INFO|[WATCHDOG] pausing 26s (elapsed 156s)
+2026-07-14 13:10:51,937|INFO|[WATCHDOG] pausing 42s (elapsed 182s)
+2026-07-14 13:11:33,939|INFO|[WATCHDOG] pausing 32s (elapsed 224s)
+2026-07-14 13:12:05,941|INFO|[WATCHDOG] pausing 25s (elapsed 256s)
+2026-07-14 13:12:30,944|INFO|[WATCHDOG] pausing 42s (elapsed 281s)
+2026-07-14 13:13:12,946|INFO|[WATCHDOG] pausing 17s (elapsed 323s)
+2026-07-14 13:13:29,948|INFO|[WATCHDOG] pausing 25s (elapsed 340s)
+2026-07-14 13:13:54,950|INFO|[WATCHDOG] pausing 18s (elapsed 365s)
+2026-07-14 13:14:12,952|INFO|[WATCHDOG] pausing 37s (elapsed 383s)
+2026-07-14 13:14:58,094|ERROR|[PROCESS_PROTECT] failed: module 'win32process' has no attribute 'PROCESS_TERMINATE'
+2026-07-14 13:14:58,094|INFO|[WATCHDOG] miner launched with 2 threads, PID 22868
+2026-07-14 13:14:58,097|INFO|[WATCHDOG] started
+2026-07-14 13:14:58,097|INFO|[PERSISTENCE] creating logon scheduled task for watchdog script
+2026-07-14 13:14:58,203|INFO|[PERSISTENCE] logon task created
+2026-07-14 13:14:58,204|INFO|[PERSISTENCE] creating watchdog scheduled task (runs every 5 minutes)
+2026-07-14 13:14:58,267|INFO|[PERSISTENCE] watchdog task created
+2026-07-14 13:14:58,268|INFO|[PERSISTENCE] Registry Run key added
+2026-07-14 13:14:59,041|INFO|[PERSISTENCE] Startup shortcut created
+2026-07-14 13:14:59,041|INFO|[MAIN] adding micro-pause...
+2026-07-14 13:15:00,273|INFO|[STAGER] deployment complete, watchdog running
+2026-07-14 13:15:50,156|INFO|[WATCHDOG] Miner CPU low (0.0%) for a while, increasing threads to 3
+2026-07-14 13:15:55,738|ERROR|[PROCESS_PROTECT] failed: module 'win32process' has no attribute 'PROCESS_TERMINATE'
+2026-07-14 13:15:55,739|INFO|[WATCHDOG] miner launched with 3 threads, PID 8488

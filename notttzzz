@@ -1,0 +1,61 @@
+2026-07-13 21:03:56,175|INFO|[LOG] Writing log to C:\Users\hotlo\AppData\Local\Temp\stager_debug.log
+
+============================================================
+==================== MONOLITHIC STARTED ====================
+============================================================
+
+2026-07-13 21:03:56,176|INFO|[MAIN] start, PID=15584
+2026-07-13 21:03:56,176|INFO|[MAIN] woke up, args=['C:\\Users\\hotlo\\OneDrive\\Desktop\\tochi.py']
+2026-07-13 21:03:56,176|INFO|[EXCLUSION] adding script to Defender exclusions
+2026-07-13 21:03:56,178|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-13 21:03:57,435|INFO|[EXCLUSION] done
+2026-07-13 21:03:57,435|INFO|[FIND_MINER] searching for miner executable
+2026-07-13 21:03:57,509|INFO|[FIND_MINER] found: C:\Users\hotlo\AppData\Local\Microsoft\Caches\wlV43T04i8LtYhoET\who my pie.exe
+2026-07-13 21:03:57,510|INFO|[MAIN] Existing miner found (fallback), running post‑exploitation logic
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\logging\__init__.py", line 1154, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2011' in position 81: character maps to <undefined>
+Call stack:
+  File "C:\Users\hotlo\OneDrive\Desktop\tochi.py", line 1713, in <module>
+    main()
+  File "C:\Users\hotlo\OneDrive\Desktop\tochi.py", line 1675, in main
+    hawk.info("[MAIN] Existing miner found (fallback), running post‑exploitation logic")
+Message: '[MAIN] Existing miner found (fallback), running post‑exploitation logic'
+Arguments: ()
+Script has already been deployed before
+2026-07-13 21:03:57,513|INFO|[MAIN] Previous deployment detected, using existing miner
+2026-07-13 21:03:57,513|INFO|[DEFENDER_DISABLE] disabling cloud‑delivered protection
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\logging\__init__.py", line 1154, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2011' in position 63: character maps to <undefined>
+Call stack:
+  File "C:\Users\hotlo\OneDrive\Desktop\tochi.py", line 1713, in <module>
+    main()
+  File "C:\Users\hotlo\OneDrive\Desktop\tochi.py", line 1676, in main
+    run_deployer(existing_miner)
+  File "C:\Users\hotlo\OneDrive\Desktop\tochi.py", line 1588, in run_deployer
+    disable_defender_cloud()
+  File "C:\Users\hotlo\OneDrive\Desktop\tochi.py", line 759, in disable_defender_cloud
+    hawk.info("[DEFENDER_DISABLE] disabling cloud‑delivered protection")
+Message: '[DEFENDER_DISABLE] disabling cloud‑delivered protection'
+Arguments: ()
+2026-07-13 21:03:58,305|INFO|[DEFENDER_DISABLE] done
+2026-07-13 21:03:58,305|INFO|[WIN_UPDATE] pausing updates for 35 days
+2026-07-13 21:03:58,655|INFO|[WIN_UPDATE] updates paused
+2026-07-13 21:03:58,657|INFO|[MAIN] Original miner name detected, renaming and generating config...
+2026-07-13 21:03:59,123|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\wlV43T04i8LtYhoET\rundll32.exe to Defender exclusions
+2026-07-13 21:03:59,124|ERROR|[EXCLUSION_REG] failed to set exclusion: [WinError 5] Access is denied
+2026-07-13 21:03:59,785|INFO|[EXCLUSION] folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\wlV43T04i8LtYhoET\rundll32.exe added
+2026-07-13 21:03:59,787|INFO|[WATCHDOG] waiting 447s before first launch

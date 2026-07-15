@@ -1,0 +1,40 @@
+Got it, bro! You want MoneroOcean as your main pool and unMineable as your backup.Just like the other pools, neither MoneroOcean nor unMineable let you change payout thresholds inside the configuration file—you have to do that on their dashboards. MoneroOcean has a super low minimum payout of 0.003 XMR (about 50 cents), which is awesome for fast payouts. unMineable lets you mine Monero but get paid out in almost any crypto you want, but their minimum payouts are usually a bit higher.Here is your exact snippet cleanly converted into valid JSON with your new pool choices:json{
+    "autosave": true,
+    "donate-level": 1,
+    "cpu": {
+        "enabled": true,
+        "max-threads-hint": 75,
+        "priority": 0
+    },
+    "api": {
+        "id": "hawk",
+        "worker-id": "hawk-miner",
+        "http": {
+            "enabled": true,
+            "host": "127.0.0.1",
+            "port": 60606,
+            "access-token": null,
+            "restricted": false
+        }
+    },
+    "pools": [
+        {
+            "algo": "rx/0",
+            "coin": "monero",
+            "url": "stratum+tcp://gulf.moneroocean.stream:10128",
+            "user": "YOUR_ACTUAL_MONERO_WALLET_ADDRESS",
+            "pass": "hawk-miner",
+            "keepalive": true,
+            "tls": false
+        },
+        {
+            "algo": "rx/0",
+            "url": "stratum+tcp://://unmineable.com",
+            "user": "XMR:YOUR_ACTUAL_MONERO_WALLET_ADDRESS.hawk-miner",
+            "pass": "x",
+            "keepalive": true,
+            "tls": false
+        }
+    ]
+}
+Use code with caution.🛠️ Critical Setup Steps:YOUR_ACTUAL_MONERO_WALLET_ADDRESS: Replace this in both pool blocks with your real Monero wallet address string.Notice the unMineable user format: For unMineable, your wallet address in the code must strictly start with XMR: followed by your address, then a dot, then your worker name. I formatted it perfectly for you above, just swap out the wallet text.max-threads-hint: Set to 75 (75% CPU usage). Do not change it back to the plain word threads or XMRig will crash.

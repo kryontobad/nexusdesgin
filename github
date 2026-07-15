@@ -1,0 +1,1 @@
+. Missing "Stratum" Protocol in the URLIf you type just the pool URL into your config.json file, XMRig will refuse to connect. It requires the correct protocol prefix.The Fix: Make sure your URL starts with stratum+tcp:// or stratum+ssl:// (e.g., stratum+tcp://://herominers.com).

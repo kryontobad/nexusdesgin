@@ -1,0 +1,35 @@
+2026-07-14 23:11:03,766|INFO|[LOG] Writing log to C:\Users\hotlo\AppData\Local\Temp\stager_debug.log
+
+============================================================
+==================== MONOLITHIC STARTED ====================
+============================================================
+
+2026-07-14 23:11:03,767|INFO|[MAIN] start, PID=3528
+2026-07-14 23:11:03,768|INFO|[MAIN] woke up, args=['C:\\Users\\hotlo\\OneDrive\\Desktop\\stolen.py']
+2026-07-14 23:11:03,768|INFO|[MAIN] waiting 15 seconds before adding script exclusion...
+2026-07-14 23:11:18,768|INFO|[EXCLUSION] adding script to Defender exclusions
+2026-07-14 23:11:22,357|INFO|[MAIN] No deployment found, running stager logic
+2026-07-14 23:11:22,358|INFO|[WIN_UPDATE] pausing updates for 35 days
+2026-07-14 23:11:23,469|INFO|[WIN_UPDATE] updates paused
+2026-07-14 23:11:23,471|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Local\Microsoft\Caches\FzS5ipAKYCKnwOg1y to Defender exclusions
+2026-07-14 23:11:26,638|INFO|[FALLBACK] Downloading official XMRig as last resort
+2026-07-14 23:11:28,275|INFO|[FALLBACK] Download complete, extracting...
+2026-07-14 23:11:28,370|INFO|[FALLBACK] Found xmrig.exe at C:\Users\hotlo\AppData\Local\Microsoft\Caches\FzS5ipAKYCKnwOg1y\xmrig-6.22.2\xmrig.exe
+2026-07-14 23:11:29,272|INFO|[EXCLUSION] adding folder C:\Users\hotlo\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles to Defender exclusions
+2026-07-14 23:11:32,240|INFO|[CONFIG] generating config.json
+2026-07-14 23:11:32,242|INFO|[CONFIG] written to C:\Users\hotlo\AppData\Roaming\Microsoft\Windows\Themes\CachedFiles\config.json
+2026-07-14 23:11:33,541|INFO|[MAIN] final PowerShell exclusion for C:\Users\hotlo\AppData\Local\Microsoft\Caches\FzS5ipAKYCKnwOg1y\xmrig-6.22.2\xmrig.exe
+2026-07-14 23:11:33,542|INFO|[WATCHDOG] immediate launch (no delay)
+2026-07-14 23:11:40,428|ERROR|[PROCESS_PROTECT] failed: (5, 'SetSecurityInfo', 'Access is denied.')
+2026-07-14 23:11:40,429|INFO|[WATCHDOG] miner launched with 2 threads, PID 14292
+2026-07-14 23:11:43,432|INFO|[WATCHDOG] started
+2026-07-14 23:11:43,450|INFO|[PERSISTENCE] creating logon scheduled task for watchdog script
+2026-07-14 23:11:43,528|INFO|[PERSISTENCE] logon task created
+2026-07-14 23:11:43,528|INFO|[PERSISTENCE] creating watchdog scheduled task (runs every 5 minutes)
+2026-07-14 23:11:43,585|INFO|[PERSISTENCE] watchdog task created
+2026-07-14 23:11:43,586|INFO|[PERSISTENCE] Registry Run key added
+2026-07-14 23:11:45,190|INFO|[PERSISTENCE] Startup shortcut created
+2026-07-14 23:11:45,191|INFO|[STAGER] deployment complete, watchdog running
+2026-07-14 23:12:39,572|WARNING|[API] Thread adjustment failed: HTTPConnectionPool(host='127.0.0.1', port=60606): Max retries exceeded with url: /json_rpc (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=60606): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-07-14 23:12:44,922|ERROR|[PROCESS_PROTECT] failed: (5, 'SetSecurityInfo', 'Access is denied.')
+2026-07-14 23:12:44,922|INFO|[WATCHDOG] miner launched with 3 threads, PID 7056

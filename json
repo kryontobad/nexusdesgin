@@ -1,0 +1,12 @@
+A "read error" means XMRig successfully reached out and touched the pool's server, but the server immediately hung up or dropped the connection.Since you fixed the prefix, a read error: "end of file" or connection reset by peer is almost always caused by one of three configuration mix-ups:1. The TLS / SSL Mismatch (Most Common)If you turn TLS encryption on but use a non-TLS port, or turn TLS off but use a TLS port, the server will instantly reject you with a read error.The Fix: Match your protocol prefix to the exact port.If using a standard port (like 1111 or 2222), use: "url": "stratum+tcp://://herominers.com" and make sure "tls": false is set in your config.If using an encrypted port (like 443), use: "url": "stratum+ssl://://herominers.com" and make sure "tls": true is set.2. Typo in the Address FormatThe example URL you wrote (stratum+tcp://://herominers.com) has a broken syntax. Having multiple colons and slashes together will confuse the miner's built-in network handler.The Fix: Ensure it follows a single prefix, the exact subdomain, and a port number. It must look clean like this: stratum+tcp://://herominers.com (or whatever region/port HeroMiners Monero Pool assigns you).   Let's Build a Fresh ConfigTo avoid errors, clear out your old pool block. Paste this exact structure directly into the "pools" section of your config.json file:json"pools": [
+    {
+        "algo": "rx/0",
+        "coin": "monero",
+        "url": "stratum+ssl://://herominers.com",
+        "user": "YOUR_MONERO_WALLET_ADDRESS_HERE.YOUR_WORKER_NAME",
+        "pass": "x",
+        "tls": true,
+        "keepalive": true
+    }
+],
+Use code with caution.(Note: Swap de.monero with us.monero or whatever regional server is closest to you via the HeroMiners Setup Page).

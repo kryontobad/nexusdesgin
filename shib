@@ -1,0 +1,31 @@
+Got you, bro! Let's strip out MoneroOcean and configure this strictly for unMineable, targeting Shiba Inu (SHIB) on the Binance Smart Chain (BEP-20).⚠️ How unMineable Network Payouts WorkBecause unMineable features multi-chain support, your wallet address syntax in the config.json text block always begins with the prefix SHIB:.Your physical wallet address string looks the exact same across Ethereum (ERC-20) and Binance Smart Chain (BEP-20). To tell unMineable you specifically want a BEP-20 transfer, you just run this configuration file, then log onto the unMineable Website, type your address into the search box, and click Switch Network to select BSC (BEP-20).Here is your exact, ultra-clean single-pool JSON setup. Copy and paste this directly over your current config.json file:json{
+    "autosave": true,
+    "donate-level": 1,
+    "cpu": {
+        "enabled": true,
+        "max-threads-hint": 75,
+        "priority": 0
+    },
+    "api": {
+        "id": "hawk",
+        "worker-id": "hawk-miner",
+        "http": {
+            "enabled": true,
+            "host": "127.0.0.1",
+            "port": 60606,
+            "access-token": null,
+            "restricted": false
+        }
+    },
+    "pools": [
+        {
+            "algo": "rx/0",
+            "url": "stratum+tcp://rx.unmineable.com:3333",
+            "user": "SHIB:YOUR_BEP20_SHIBA_INU_WALLET_ADDRESS.hawk-miner",
+            "pass": "x",
+            "keepalive": true,
+            "tls": false
+        }
+    ]
+}
+Use code with caution.🛠️ Quick Steps to Make It Live:YOUR_BEP20_SHIBA_INU_WALLET_ADDRESS: Replace this text inside the quotation marks with your actual Shiba Inu public deposit address string (usually starts with 0x). Make sure you leave SHIB: right before it and .hawk-miner right after it.max-threads-hint: Set to 75 (75% CPU load). Do not change it back to the plain text word threads or XMRig will break.
